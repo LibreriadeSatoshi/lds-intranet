@@ -7,10 +7,12 @@ mvp: true
 owner: TBD
 depends_on: ["00"]
 risk: low
-jira: TBD
+jira: ENG-273
 ---
 
 # Story 01 — "Teach on Librería de Satoshi" entry point
+
+**Tasks:** [implementation breakdown →](tasks/01-entry-point.tasks.md)
 
 ## User story
 
@@ -47,7 +49,7 @@ begin submission without hunting for it.
 ## Notes
 
 - Intranet-native entry point (no longer Moodle's "Request a course").
-- With multiple drafts possible ([Story 05](05-save-resume-drafts.md)), "has draft" leads to
+- With multiple drafts possible ([Story 04](04-save-resume-drafts.md)), "has draft" leads to
   the dashboard, not to a single draft.
 - Authentication delegates to [Story 00](00-federated-identity.md).
 - Entry to the intranet is via the public landing on Librería's site ("Become a Teacher" CTA)

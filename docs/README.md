@@ -27,14 +27,17 @@ single consolidated working document; each story now lives in its own file.
 | 00 | [Federated identity via dedicated IdP](stories/00-federated-identity.md) | draft | TBD |
 | 01 | ["Teach on LdS" entry point](stories/01-entry-point.md) | draft | TBD |
 | 02 | [Teacher profile wizard](stories/02-teacher-profile-wizard.md) | draft | TBD |
-| 03 | [Course submission (metadata)](stories/03-course-submission.md) | draft | TBD |
-| 04 | [Course content breakdown](stories/04-course-content-breakdown.md) | draft | TBD |
-| 05 | [Save & resume drafts](stories/05-save-resume-drafts.md) | draft | TBD |
-| 06 | [Approval via GitHub PR](stories/06-approval-github-pr.md) | draft | Ops |
-| 07 | [Handoff to Moodle & publication](stories/07-handoff-moodle-publication.md) | draft | TBD |
-| 08 | [Instructor promotion tools](stories/08-instructor-promotion-tools.md) | draft | Aria Cediel |
-| 09 | [Marketing publish & social pipeline](stories/09-marketing-publish-pipeline.md) | draft | Aria Cediel |
-| 10 | [Help / doc reference](stories/10-help-doc-reference.md) | stub | Ivan Fuentes |
+| 03 | [Course submission (metadata + content breakdown)](stories/03-course-submission.md) | draft | TBD |
+| 04 | [Save & resume drafts](stories/04-save-resume-drafts.md) | draft | TBD |
+| 05 | [Approval via GitHub PR](stories/05-approval-github-pr.md) | draft | Ops |
+| 06 | [Handoff to Moodle & publication](stories/06-handoff-moodle-publication.md) | draft | TBD |
+| 06b | [Publish and course promotions (marketing)](stories/06b-marketing-publish-pipeline.md) | draft | Aria Cediel |
+| 07 | [Instructor promotion tools](stories/07-instructor-promotion-tools.md) | draft | Aria Cediel |
+| 08 | [Public instructor profile, featured & exports](stories/08-public-instructor-profile.md) | draft | Aria Cediel |
+| 09 | [Doc reference / teacher help](stories/09-doc-reference.md) | stub | Ivan Fuentes |
+
+Implementation task breakdowns per story live in
+[`stories/tasks/`](stories/tasks/README.md) (00–08).
 
 ## Platform / loader stories (`platform/`)
 
@@ -50,7 +53,14 @@ source document. They are the Moodle-integration core. See [risks.md](risks.md#p
 
 ## Numbering note
 
-The original document had a broken sequence (two "Story 6", an off-by-one against the
-Jira labels, marketing stories with no number). This folder uses a **canonical 0–10**
-numbering. The `ENG-27x` Jira tickets do not exist yet — they are a future way of working
-and will inherit numbering from here, not the other way around.
+This folder **follows the master document's own numbering (0–9)**. Two quirks are preserved
+faithfully:
+
+- The master's "Story 3" bundles course **metadata** and the per-class **content breakdown**
+  under one number — kept together in [03](stories/03-course-submission.md) (Parts A and B).
+- The master has **two "Story 6"**: the handoff ([06](stories/06-handoff-moodle-publication.md))
+  and the marketing publish/promotions pipeline, kept as
+  [06b](stories/06b-marketing-publish-pipeline.md) to avoid a collision.
+
+The `ENG-27x` Jira labels in the master are an older, off-by-one sequence; where a clean
+mapping exists it is recorded in each story's front-matter `jira` field.

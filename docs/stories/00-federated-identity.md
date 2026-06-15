@@ -7,10 +7,12 @@ mvp: true
 owner: TBD
 depends_on: []
 risk: high
-jira: TBD
+jira: ENG-272
 ---
 
 # Story 00 — Federated identity via dedicated IdP
+
+**Tasks:** [implementation breakdown →](tasks/00-federated-identity.tasks.md)
 
 > *IdP = Identity Provider · OIDC = OpenID Connect (capa de identidad sobre OAuth 2.0) ·
 > `sub` = identificador de usuario, único por IdP.*
@@ -53,7 +55,8 @@ Moodle is down.
 
 Ocurre en la landing. El usuario ya tiene cuenta Moodle (creada como estudiante). Al entrar
 por la intranet vía IdP, si el identificador casa (mismo Google/GitHub), se vincula. Si no,
-hay un paso de vinculación de su cuenta Moodle existente a la identidad del IdP.
+hay un paso de vinculación de su cuenta Moodle existente a la identidad del IdP. Definir la
+estrategia de vinculación y el fallback.
 
 ## Scope — students out of the IdP for now
 
@@ -93,5 +96,5 @@ simplifica respecto a versiones previas: sin pieza Nostr.)
   el flujo y el fallback.
 - **¿Authentik full en MVP?** Montar el IdP self-hosted con 3 métodos es semanas de infra.
   Alternativa para el piloto: un solo método (GitHub OIDC, que ya se necesita para los PRs de
-  [Story 06](06-approval-github-pr.md)) y Authentik federado en fase 2. Decisión de negocio —
+  [Story 05](05-approval-github-pr.md)) y Authentik federado en fase 2. Decisión de negocio —
   ver [risks.md](../risks.md#identity-mvp-scope).

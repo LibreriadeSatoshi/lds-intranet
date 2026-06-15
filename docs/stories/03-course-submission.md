@@ -1,21 +1,23 @@
 ---
 id: "03"
-title: Course submission (metadata)
+title: Course submission (metadata + content breakdown)
 track: product
 status: draft
 mvp: true
 owner: TBD
 depends_on: ["02"]
 risk: medium
-jira: TBD
+jira: ENG-274
 ---
 
-# Story 03 — Course submission (metadata)
+# Story 03 — Course submission
 
-> **Split note:** the source "Story 3" mixed two contradictory scopes (it said it did *not*
-> cover generating the review-ready package, then later said it *did*). It is split into this
-> story (metadata collection) and [Story 04](04-course-content-breakdown.md) (content
-> breakdown / review-ready package).
+**Tasks:** [implementation breakdown →](tasks/03-course-submission.tasks.md)
+
+> **Merge note:** the master "Story 3" is a single story that mixes two parts under the same
+> number — course **metadata** (course type, language, pitch, objectives, ownership) and the
+> per-class **content breakdown** (review-ready package). They are kept together here to stay
+> faithful to the master numbering, in two sections below.
 
 **img 1** _(pegar acá: ejemplo de Udemy)_
 
@@ -23,26 +25,31 @@ jira: TBD
 
 **As** a teacher, **I want** a step-by-step form to submit my course to get approved.
 
-With all this information we generate a `.md` file that serves as the input artifact for the
-content breakdown ([Story 04](04-course-content-breakdown.md)).
+With all this information we generate a `.md` file that serves as the review-ready course
+package — the input artifact for the GitHub review workflow ([Story 05](05-approval-github-pr.md))
+and the basis for the `COURSE_MASTER_PLAN` consumed by the loader.
 
 ## Scope
 
 **Covers:**
 - Collection of course metadata.
-- Allowing applicants to continue to the next step of the onboarding process.
+- Course content information (per-class breakdown).
+- Generating a review-ready course package compatible with the GitHub review workflow
+  ([Story 05](05-approval-github-pr.md)) — a Markdown template with the information gathered so
+  far, so the teacher keeps working on the course in GitHub.
 
 **Does not cover:**
-- Generating a review-ready course package (→ [Story 04](04-course-content-breakdown.md)).
+- The save/resume process between steps (→ [Story 04](04-save-resume-drafts.md)).
+- The approval process (→ [Story 05](05-approval-github-pr.md)).
 
-## Required fields
+## Part A — Course metadata (required fields)
 
 - **Course Name.**
 - **What type of course would you like to offer?**
   - [ ] **MOOC** — self-paced online course students can take anytime.
   - [ ] **Cohort-Based Course** — students progress together on a shared schedule.
 
-  **If Cohort-Based**, show: selection process option, Start date, End date, Classes (how
+  **If Cohort-Based**, show: selection-process option, Start date, End date, Classes (how
   many), Class recurrence (helps validate start/end dates; help text: classes should not
   exceed ~2h), Time, Time Zone.
 
@@ -50,7 +57,8 @@ content breakdown ([Story 04](04-course-content-breakdown.md)).
 - **Language Selection.**
 - **Elevator pitch** — describe the course in 1–2 sentences (30-second elevator test). Link
   resources about what an elevator pitch is.
-- **What problem is this course solving for students, if any?**
+- **What problem is this course solving for students, if any?** (Understanding the students'
+  pain points helps craft the benefits.)
 - **3 learning objectives / outcomes / competencies / skills** students gain after finishing.
 - **Your ideal student** — experience level, what they want to achieve, why they need this.
 - **Content ownership rights:**
@@ -61,12 +69,57 @@ content breakdown ([Story 04](04-course-content-breakdown.md)).
 - **MKT_BRIEFING** — created as `.md` in GitHub; the instructor is given the link.
 - **Video(s)** to present the course on social media platforms.
 
+## Part B — Content breakdown (required fields, per class)
+
+- **Class Number / Title.**
+- **Content:** Topics, Objectives.
+- **Activities:** Quiz, Exercises.
+- **Source Materials.**
+
+### Generated Markdown template (course package shape)
+
+```markdown
+# Course Name
+# What type of course would you like to offer?
+- [ ] MOOC: Self-paced online course students can take anytime
+- [ ] Cohort-Based Course: students progress together on a shared schedule
+  | Field      | Information                       |
+  |------------|-----------------------------------|
+  | Start date |                                   |
+  | End date   |                                   |
+  | Classes    | How many classes your course has  |
+  | Time       |                                   |
+  | Time Zone  |                                   |
+---
+# Language
+# 3 learning objectives / outcomes / competencies / skills
+  1.
+  2.
+  3.
+# Elevator pitch
+  Describe the course in 1-2 sentences (30-second elevator test).
+# What problem is this course solving for students, if any?
+# Content Course
+## Class Number N: Title of Class N
+## Content class
+### Topics
+### Objectives
+## Activities Class
+- Quiz
+- Exercise
+- Etc...
+## Source Materials
+```
+
 ## Notes
 
-- This metadata feeds both the `MKT_BRIEFING` and the `COURSE_MASTER_PLAN`
-  (generated by [PA](../platform/PA-document-generation.md)).
+- This Markdown is the artifact submitted as a Pull Request in
+  [Story 05](05-approval-github-pr.md).
+- This data feeds both the `MKT_BRIEFING` and the `COURSE_MASTER_PLAN`, generated by
+  [PA](../platform/PA-document-generation.md) and consumed by the loader
+  ([PC](../platform/PC-loader-build-course.md)).
 
 ## Open questions
 
 - Where exactly is the `.md` generated — in the wizard, at approval, or in the loader? Three
-  places in the source mention generation. See [risks.md](../risks.md#artifact-generation-pipeline).
+  places in the master mention generation. See [risks.md](../risks.md#artifact-generation-pipeline).

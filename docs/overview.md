@@ -55,12 +55,12 @@ content.
 - `moodle-course-loader` — Python CLI that builds courses in Moodle via the Web Services
   API (consumes the `COURSE_MASTER_PLAN`).
 - `courses` — GitHub repo where course submissions live as Pull Requests
-  ([Story 06](stories/06-approval-github-pr.md)).
+  ([Story 05](stories/05-approval-github-pr.md)).
 
 ## MVP scope
 
-Story 00 + Stories 01–07, plus platform stories P101 / PA / PB / PC. Marketing (08, 09)
-and help (10) are post-skeleton. See [roadmap.md](roadmap.md) for the proposed thin
+Story 00 + Stories 01–06, plus platform stories P101 / PA / PB / PC. Marketing (06b, 07,
+08) and help (09) are post-skeleton. See [roadmap.md](roadmap.md) for the proposed thin
 vertical slice.
 
 ## Cross-cutting open question (from the source doc, unresolved)

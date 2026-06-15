@@ -28,7 +28,7 @@ jira: TBD
 
 ## Why it matters
 
-[Story 07](../stories/07-handoff-moodle-publication.md) ("Teacher role assigned by the
+[Story 06](../stories/06-handoff-moodle-publication.md) ("Teacher role assigned by the
 loader") cannot complete without this. It is on the critical path.
 
 ## Open questions

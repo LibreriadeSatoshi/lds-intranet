@@ -7,10 +7,12 @@ mvp: true
 owner: TBD
 depends_on: ["01"]
 risk: medium
-jira: TBD
+jira: ENG-274
 ---
 
 # Story 02 — Teacher profile wizard
+
+**Tasks:** [implementation breakdown →](tasks/02-teacher-profile-wizard.tasks.md)
 
 ## User story
 
@@ -27,7 +29,7 @@ profile will be easy and frictionless.
 - Course content information.
 - Collection of course metadata (→ [Story 03](03-course-submission.md)).
 - Generating a review-ready course package compatible with the GitHub review workflow
-  (→ [Story 04](04-course-content-breakdown.md) / [Story 06](06-approval-github-pr.md)).
+  (→ [Story 03](03-course-submission.md) / [Story 05](05-approval-github-pr.md)).
 
 ## Required fields
 

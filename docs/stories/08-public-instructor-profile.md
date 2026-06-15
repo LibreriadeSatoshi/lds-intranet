@@ -1,27 +1,31 @@
 ---
 id: "08"
-title: Instructor promotion tools
+title: Public instructor profile, featured & marketing exports
 track: product
 status: draft
 mvp: false
 owner: Aria Cediel
-depends_on: ["07"]
+depends_on: ["06", "PA"]
 risk: low
 jira: TBD
 ---
 
-# Story 08 — Instructor promotion tools
+# Story 08 — Public instructor profile, featured & marketing exports
+
+**Tasks:** [implementation breakdown →](tasks/08-public-instructor-profile.tasks.md)
+
+> The master "Story 8" opens with a Canva → Metricool note (read approved `MKT_BRIEFING` →
+> Canva asset → Metricool draft → MKT lead approves/posts) that overlaps with
+> [Story 06b](06b-marketing-publish-pipeline.md); the pipeline mechanics live there. This story
+> keeps the **profile / featured / role / export** acceptance criteria.
 
 **img 2** _(pegar acá: ejemplo de change.org / compartir)_
 
 ## User story
 
-**As** an approved instructor, **I want** tools to promote my course, **so that** I can attract
-students.
-
-(Restated from the source: *"As an approved instructor, I should receive ready-to-share
-social assets when my course is published, so that I can easily promote it on my own
-channels."*)
+**As** an approved instructor, **I want** a public profile and shareable course pages,
+**and as** marketing **I want** access and exports, **so that** approved courses can be found
+and promoted.
 
 ## Acceptance criteria
 
@@ -49,5 +53,5 @@ channels."*)
 - "Entity with two views" pattern: internal view (dashboard) and public view (landing). Same
   data, two renders.
 - "Featured" = a featured flag on the course model, unrelated to Moodle.
-- Promotion is carried out by the marketing team and may require tools or data outputs to feed
-  their own tools — hence the marketing role.
+- The Canva → Metricool draft flow referenced at the top of the master story is specified in
+  [Story 06b](06b-marketing-publish-pipeline.md).

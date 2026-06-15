@@ -5,7 +5,7 @@ track: platform
 status: undefined
 mvp: true
 owner: TBD
-depends_on: ["04"]
+depends_on: ["03"]
 risk: high
 jira: TBD
 ---
@@ -18,8 +18,8 @@ jira: TBD
 ## What is known (from references)
 
 - On approval, the system generates two typed documents:
-  - **`MKT_BRIEFING`** — for marketing (consumed by [Story 08](../stories/08-instructor-promotion-tools.md)
-    and [Story 09](../stories/09-marketing-publish-pipeline.md)).
+  - **`MKT_BRIEFING`** — for marketing (consumed by [Story 06b](../stories/06b-marketing-publish-pipeline.md)
+    and [Story 08](../stories/08-public-instructor-profile.md)).
   - **`COURSE_MASTER_PLAN`** — for the instructor; the loader's input to build the course
     ([PC](PC-loader-build-course.md)).
 - The content contract between intranet and Moodle is this **Doc**, not a YAML emitted by the

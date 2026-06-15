@@ -20,7 +20,7 @@ jira: TBD
 - On approval, document generation ([PA](PA-document-generation.md)) is triggered "following
   the temporal sequence (Story B)".
 - The handoff is **not instantaneous** — the loader is batch
-  ([Story 07](../stories/07-handoff-moodle-publication.md)).
+  ([Story 06](../stories/06-handoff-moodle-publication.md)).
 
 ## Open questions
 

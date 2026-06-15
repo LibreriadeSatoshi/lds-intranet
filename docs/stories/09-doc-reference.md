@@ -1,6 +1,6 @@
 ---
-id: "10"
-title: Help / doc reference
+id: "09"
+title: Doc reference / teacher help
 track: product
 status: stub
 mvp: false
@@ -10,12 +10,10 @@ risk: low
 jira: TBD
 ---
 
-# Story 10 — Help / doc reference
+# Story 09 — Doc reference
 
-> **Stub.** Barely defined in the source. Kept as its own file so the gap is visible and
-> assignable rather than buried.
-
-Owner: [Ivan Fuentes](mailto:ivan@libreriadesatoshi.com)
+> **Stub.** Barely defined in the master. Kept as its own file so the gap is visible and
+> assignable rather than buried. Owner: [Ivan Fuentes](mailto:ivan@libreriadesatoshi.com).
 
 ## Intent
 

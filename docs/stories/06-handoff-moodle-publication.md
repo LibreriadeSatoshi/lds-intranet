@@ -1,16 +1,18 @@
 ---
-id: "07"
+id: "06"
 title: Handoff to Moodle, publication & instructor profile
 track: product
 status: draft
 mvp: true
 owner: TBD
-depends_on: ["06", "PA", "PB", "PC", "P101"]
+depends_on: ["05", "PA", "PB", "PC", "P101"]
 risk: high
-jira: TBD
+jira: ENG-277
 ---
 
-# Story 07 — Handoff to Moodle, publication, and instructor profile
+# Story 06 — Handoff to Moodle, publication, and instructor profile
+
+**Tasks:** [implementation breakdown →](tasks/06-handoff-moodle-publication.tasks.md)
 
 > **Critical path.** This is the only point where real value is delivered (a live course in
 > Moodle), and it depends on the *entire* platform track (PA/PB/PC/P101), which is currently
@@ -47,7 +49,7 @@ instructor, **so that** students can find me.
 ## Open questions
 
 - **Dual handoff mechanism** — reconcile the GitHub Action (automatic, on-merge) from
-  [Story 06](06-approval-github-pr.md) with the Sheet + batch loader described here. See
+  [Story 05](05-approval-github-pr.md) with the Sheet + batch loader described here. See
   [risks.md](../risks.md#dual-handoff-mechanism).
 - **Post-publish edits / data consistency** — what happens when intranet data and Moodle
   content diverge after publication? See [risks.md](../risks.md#data-consistency).

@@ -1,18 +1,20 @@
 ---
-id: "05"
+id: "04"
 title: Save & resume drafts
 track: product
 status: draft
 mvp: false
 owner: TBD
-depends_on: ["02", "03", "04"]
+depends_on: ["02", "03"]
 risk: medium
-jira: TBD
+jira: ENG-275
 ---
 
-# Story 05 — Save & resume drafts
+# Story 04 — Save & resume drafts
 
-> Cross-cutting: this story spans the wizard ([02](02-teacher-profile-wizard.md)–[04](04-course-content-breakdown.md)).
+**Tasks:** [implementation breakdown →](tasks/04-save-resume-drafts.tasks.md)
+
+> Cross-cutting: this story spans the wizard ([02](02-teacher-profile-wizard.md)–[03](03-course-submission.md)).
 > Kept as its own unit with explicit dependencies rather than scattered across the wizard
 > stories.
 

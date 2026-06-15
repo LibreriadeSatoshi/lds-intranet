@@ -1,16 +1,18 @@
 ---
-id: "06"
+id: "05"
 title: Approval via GitHub PR
 track: product
 status: draft
 mvp: true
 owner: Ops
-depends_on: ["04"]
+depends_on: ["03"]
 risk: high
-jira: TBD
+jira: ENG-276
 ---
 
-# Story 06 — Course submissions reviewed via GitHub
+# Story 05 — Course submissions reviewed via GitHub
+
+**Tasks:** [implementation breakdown →](tasks/05-approval-github-pr.tasks.md)
 
 ## User story
 
@@ -23,7 +25,7 @@ the course to be automatically uploaded to Librería's Moodle.
 Teachers already know (or should know) Markdown and GitHub, and both are well-known in the
 Bitcoin ecosystem. Instead of building a custom approval workflow, we reuse GitHub's Pull
 Request review process. Courses are written as Markdown files following the structure from
-[Story 04](04-course-content-breakdown.md).
+[Story 03](03-course-submission.md).
 
 ## Where
 
@@ -69,5 +71,5 @@ Requests against this repo. Each course lives in its own Markdown files/folder.
   IdP identity map? GPG signing sharpens this question. See
   [risks.md](../risks.md#github-vs-idp-identity).
 - **Handoff mechanism conflict:** here, merge → GitHub Action → Moodle (automatic). But
-  [Story 07](07-handoff-moodle-publication.md) describes a Sheet + batch loader. These are two
+  [Story 06](06-handoff-moodle-publication.md) describes a Sheet + batch loader. These are two
   different architectures — unify. See [risks.md](../risks.md#dual-handoff-mechanism).
