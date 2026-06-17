@@ -6,19 +6,18 @@ Linked from the stories that surface it.
 ## One-way doors (need a stakeholder decision before building)
 
 ### Identity MVP scope
-**Risk:** Authentik self-hosted with 3 federated methods (local + Google + GitHub) is weeks of
-infra for a pilot. **Decision needed:** GitHub-OIDC-only for the pilot (fast, cheap, already
-required for [Story 05](stories/05-approval-github-pr.md) PRs) with Authentik federation in
-phase 2 — *or* full federation as a hard requirement now.
-**Input required:** volume of teachers/staff + timeline pressure.
+**RESOLVED (PRD, decision-log Q1):** full **3-method federation in v1** (local + Google +
+GitHub via self-hosted Authentik), 2 devs dedicated. The GitHub-OIDC-only pilot path is **not**
+taken.
+**Original risk (for the record):** Authentik with 3 federated methods is weeks of infra; the
+alternative was a GitHub-OIDC-only pilot with federation in phase 2.
 Refs: [Story 00](stories/00-federated-identity.md), [roadmap](roadmap.md).
 
 ### Data consistency (Moodle ↔ intranet) {#data-consistency}
-**Risk:** The intranet is source of truth for intake; Moodle owns post-handoff content. What
-happens with **edits after publication** is undefined — it decides whether the handoff is
-fire-and-forget or needs bidirectional reconciliation. This was the source document's own
-opening "duda" and was never resolved.
-**Decision needed:** are post-publish edits allowed, and on which side?
+**RESOLVED (PRD OQ-2):** fire-and-forget. After publish, content lives **only in Moodle**
+(edits there); the intranet keeps the historical record only — no bidirectional reconciliation.
+**Original risk (for the record):** what happens with edits after publication was undefined
+(the source document's opening "duda").
 Refs: [overview](overview.md), [Story 06](stories/06-handoff-moodle-publication.md).
 
 ## Engineering risks (resolvable by the team, but high impact)
@@ -33,12 +32,13 @@ Refs: [P101](platform/P101-moodle-user-role-enrolment.md),
 [PC](platform/PC-loader-build-course.md).
 
 ### Dual handoff mechanism {#dual-handoff-mechanism}
-**Risk:** Two different handoff architectures are described as if they were one:
-- [Story 05](stories/05-approval-github-pr.md): merge → **GitHub Action** → Moodle (automatic).
-- [Story 06](stories/06-handoff-moodle-publication.md): `COURSE_MASTER_PLAN` → **Sheet** →
-  **batch loader** → Moodle (not instantaneous).
-
-**Action:** unify into one mechanism before building the handoff.
+**RESOLVED (PRD OQ-1):** the PR **merge triggers the build automatically** (the build itself
+may run async/queued); there is **no manual Sheet step**. The intranet records the handoff event
+and notifies Operations on merge.
+**Original risk (for the record):** two architectures were described as one — Story 05's
+merge→GitHub-Action→Moodle vs Story 06's `COURSE_MASTER_PLAN`→Sheet→batch-loader.
+**Still for architecture:** detailed sequence/state machine, queue vs sync, error/retry,
+idempotency (PRD FR-36, OQ-6 spike).
 
 ### Artifact generation pipeline {#artifact-generation-pipeline}
 **Risk:** Three places claim to generate the course doc: the wizard
@@ -51,8 +51,9 @@ is muddy.
 **Risk:** PR authorship/review ([Story 05](stories/05-approval-github-pr.md)) is GitHub-based;
 the rest of the system keys on the IdP `sub` ([Story 00](stories/00-federated-identity.md)).
 The mapping between the two identities is unaddressed. GPG-signed commits sharpen it.
-**Action:** define the GitHub ↔ IdP identity mapping. (Largely mitigated if the pilot uses
-GitHub-OIDC-only — see *Identity MVP scope*.)
+**Action:** define the GitHub ↔ IdP identity mapping. **Still open — build-blocking (PRD OQ-4).**
+(The earlier "mitigated by a GitHub-OIDC-only pilot" escape no longer applies: full 3-method
+federation was chosen — see *Identity MVP scope* — so this mapping must be solved.)
 
 ## Hygiene / smaller items
 
@@ -60,8 +61,8 @@ GitHub-OIDC-only — see *Identity MVP scope*.)
   quirks: "Story 3" bundles metadata + content breakdown (kept in `03`), and the duplicated
   "Story 6" is split into `06` (handoff) and `06b` (marketing publish). Jira (`ENG-27x`) is an
   older off-by-one sequence, mapped per story in front-matter where possible.
-- **Story 02 confirmation email** marked "Optional" — confirms nothing. Decide.
-- **Story 05 companion `.yml` vs Markdown** for category/cohort/shortname — TBD.
+- **Story 02 confirmation email** — RESOLVED (PRD OQ-7): **required** (was marked "Optional").
+- **Story 05 companion `.yml` vs Markdown** for category/cohort/shortname — TBD (PRD OQ-5, → architecture).
 - **Naming typo** — `COURSE_COURSE_MASTER_PLAN` in source; canonical is `COURSE_MASTER_PLAN`.
 - **Language** — content captured as mixed ES/EN. Normalize to EN once the spec stabilizes
   (deferred to avoid churn on a moving doc).
