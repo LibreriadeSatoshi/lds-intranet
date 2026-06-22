@@ -15,7 +15,8 @@ Status: planning → building v1.
 1. `_bmad-output/planning-artifacts/prds/prd-lds-intranet-2026-06-16/prd.md` — the WHAT
    (FRs, NFRs, glossary §3, status lifecycle §4.5, role matrix §4.1, scope §8).
 2. `_bmad-output/planning-artifacts/architecture.md` — the HOW (stack, project structure,
-   implementation patterns, naming, handoff orchestration). Also its sibling `addendum.md`.
+   implementation patterns, naming, handoff orchestration). Also the PRD's sibling
+   `_bmad-output/planning-artifacts/prds/prd-lds-intranet-2026-06-16/addendum.md`.
 3. `docs/stories/*.md` + `docs/stories/tasks/*.tasks.md` — **scope checklist only**, not the
    build contract. They are thin pointers back to (1) and (2).
 
