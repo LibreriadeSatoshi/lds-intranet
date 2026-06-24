@@ -1,12 +1,12 @@
 ---
-title: lds-intranet — Instructor Onboarding & Course Submission
+title: libreria-intranet — Instructor Onboarding & Course Submission
 status: final
 created: 2026-06-16
 updated: 2026-06-16
 epic: ENG-271
 ---
 
-# PRD: lds-intranet — Instructor Onboarding & Course Submission
+# PRD: libreria-intranet — Instructor Onboarding & Course Submission
 
 *Working title — confirm.*
 
@@ -18,9 +18,9 @@ It is built on the existing `docs/` product spec (overview, roadmap, risks, 10 p
 
 ## 1. Vision
 
-LdS needs to grow its catalog — the immediate goal is onboarding **~50 new courses** within roughly **3 months**. Today there is no clean path for an instructor to propose a course and for Operations to capture everything they need; the process leans on Moodle, which was never meant to be the intake or approval surface.
+libreria needs to grow its catalog — the immediate goal is onboarding **~50 new courses** within roughly **3 months**. Today there is no clean path for an instructor to propose a course and for Operations to capture everything they need; the process leans on Moodle, which was never meant to be the intake or approval surface.
 
-The LdS intranet inverts that. It is a **standalone application that owns the course-submission lifecycle end to end** — from a person deciding to teach, through a guided wizard, drafts, and an Operations-led approval, to the moment an approved course is handed off and built in Moodle. Moodle stops being the container of the process and becomes its final destination: where published content lives and where students learn. After handoff, the intranet keeps the record as history — the foundation for future analytics.
+The libreria intranet inverts that. It is a **standalone application that owns the course-submission lifecycle end to end** — from a person deciding to teach, through a guided wizard, drafts, and an Operations-led approval, to the moment an approved course is handed off and built in Moodle. Moodle stops being the container of the process and becomes its final destination: where published content lives and where students learn. After handoff, the intranet keeps the record as history — the foundation for future analytics.
 
 ```
 BEFORE:  Moodle  ─ contains the whole hidden submission/approval process
@@ -37,19 +37,19 @@ This is the first slice of a larger intranet with **public and private fronts** 
 
 **Aspiring / existing instructor**
 - Propose and submit a course without learning Moodle or fighting a generic form — one guided flow, save-and-resume.
-- Present myself credibly (bio, links, experience) so LdS and students trust me.
+- Present myself credibly (bio, links, experience) so libreria and students trust me.
 - Know where my submission stands (draft → submitted → in review → approved → published) without chasing anyone.
 - Once published, get what I need to promote my course to my own audience.
 
-**Operations reviewer (LdS staff)**
+**Operations reviewer (libreria staff)**
 - See a complete, consistent submission with everything needed to make an approve/reject call — no back-and-forth to collect missing pieces.
 - Review, request changes, and approve in a tool the team already trusts (GitHub), with a durable audit trail.
 - Trigger publication to Moodle on approval without manual data re-entry.
 
-**Marketing (LdS staff)**
+**Marketing (libreria staff)**
 - Receive a marketing briefing as soon as a course is approved, so promotion work can start before the (slower) technical publish lands.
 
-**LdS as an organization**
+**libreria as an organization**
 - Onboard ~50 courses in ~3 months with a repeatable, low-friction pipeline.
 - Capture course + instructor data outside Moodle as the basis for future analytics and a future public front.
 
@@ -62,14 +62,14 @@ This is the first slice of a larger intranet with **public and private fronts** 
 ### 2.3 Key User Journeys
 
 **UJ-1. Aspiring instructor submits a course, start to finish.**
-- **Persona + context:** A Bitcoin developer with a following wants to teach a cohort-based course on LdS. New to LdS staff tooling; comfortable with GitHub.
-- **Entry state:** Unauthenticated, on the LdS site; clicks **"Teach on LdS"**.
+- **Persona + context:** A Bitcoin developer with a following wants to teach a cohort-based course on libreria. New to libreria staff tooling; comfortable with GitHub.
+- **Entry state:** Unauthenticated, on the libreria site; clicks **"Teach on libreria"**.
 - **Path:** (1) Signs in via the intranet's identity provider — chooses GitHub (or Google, or a local account). (2) Lands in the **teacher profile wizard**, fills bio + links + experience. (3) Continues into **course submission**: course metadata (type, pitch, objectives, ideal student, ownership) then a per-class **content breakdown**. (4) Saves a draft partway through dinner, resumes the next day from the same step. (5) Submits — the intranet produces a review-ready package and opens it as a GitHub PR.
 - **Climax:** A confirmation screen + email: "Your course is submitted and under review," with a link to track status.
 - **Resolution:** Submission sits at `submitted` / in-review; instructor waits on Ops. **Edge case:** if Ops requests changes, the instructor edits and the same submission re-enters review (no fresh submission).
 
 **UJ-2. Operations reviews and approves, triggering publication.**
-- **Persona + context:** An LdS Operations reviewer responsible for course quality and catalog fit.
+- **Persona + context:** An libreria Operations reviewer responsible for course quality and catalog fit.
 - **Entry state:** Authenticated as reviewer/Ops; notified a new submission PR is open.
 - **Path:** (1) Opens the submission as a GitHub PR with the full course package. (2) Reviews; comments and **requests changes** where needed (a required comment). (3) Instructor revises; reviewer re-reviews. (4) **Approves** by merging the PR. (5) Merge initiates the handoff: documents are generated and the course is built in Moodle in a *hidden-from-students* state, with role/enrolment set for the instructor.
 - **Climax:** The intranet records the **Moodle link** against the submission and flips its status to `published`.
@@ -77,22 +77,22 @@ This is the first slice of a larger intranet with **public and private fronts** 
 
 **UJ-3. Instructor gets notified along the way (customer.io).**
 - **Persona + context:** Same instructor as UJ-1, tracking progress passively via email.
-- **Path:** Receives transactional emails at key transitions — profile/course submitted, changes requested, approved, and finally **published** (with the Moodle link and a promo kit). Their interest is also captured as a **lead** in customer.io the moment they start "Teach on LdS," even if they never finish.
-- **Resolution:** Instructor stays informed without polling; LdS retains the lead for follow-up.
+- **Path:** Receives transactional emails at key transitions — profile/course submitted, changes requested, approved, and finally **published** (with the Moodle link and a promo kit). Their interest is also captured as a **lead** in customer.io the moment they start "Teach on libreria," even if they never finish.
+- **Resolution:** Instructor stays informed without polling; libreria retains the lead for follow-up.
 
 ## 3. Glossary
 
 *Downstream workflows and readers must use these terms verbatim. No synonyms.*
 
-- **Intranet** — The standalone LdS application that owns the course-submission lifecycle and is the source of truth for intake, drafting, and approval. After handoff it retains the historical record.
+- **Intranet** — The standalone libreria application that owns the course-submission lifecycle and is the source of truth for intake, drafting, and approval. After handoff it retains the historical record.
 - **Moodle** — The LMS where published courses live and students learn. In v1 it is the *destination* of the process, not its container.
 - **Instructor** — A person who proposes/teaches a course. Becomes an instructor (intranet role) once they have ≥1 approved course.
-- **Reviewer / Ops** — LdS staff who review submissions and approve or reject them.
-- **Marketing** — LdS staff who promote courses; consume the MKT_BRIEFING.
-- **Admin** — LdS staff with elevated configuration/management rights in the intranet.
+- **Reviewer / Ops** — libreria staff who review submissions and approve or reject them.
+- **Marketing** — libreria staff who promote courses; consume the MKT_BRIEFING.
+- **Admin** — libreria staff with elevated configuration/management rights in the intranet.
 - **Teacher profile** — The instructor's public-facing identity data (name/pseudo, bio, links, experience). Captured in the profile wizard.
 - **Course submission** — A proposed course an instructor submits for approval: course **metadata** + per-class **content breakdown**.
-- **Metadata** — Course-level fields: name, type (MOOC / cohort-based), pitch, objectives, ideal student, language, ownership, etc.
+- **Metadata** — Course-level fielibreria: name, type (MOOC / cohort-based), pitch, objectives, ideal student, language, ownership, etc.
 - **Content breakdown** — Per-class decomposition: class number/title, topics, objectives, activities, source materials.
 - **Wizard** — The guided multi-step flow spanning entry → profile → course submission.
 - **Draft** — An incomplete submission saved for later resumption. An intranet-owned entity, not a hidden Moodle course.
@@ -102,7 +102,7 @@ This is the first slice of a larger intranet with **public and private fronts** 
 - **Handoff** — The transition of an approved course from the intranet into Moodle: document generation → build in Moodle → write-back of the Moodle link.
 - **COURSE_MASTER_PLAN** — The canonical content contract (a Markdown document) describing course structure and assets; consumed by the loader to build the course in Moodle.
 - **MKT_BRIEFING** — A marketing-focused document derived from the submission; consumed by Marketing.
-- **Loader** (`moodle-course-loader`) — The existing tool that consumes the COURSE_MASTER_PLAN and builds the course structure in Moodle via Moodle's web-service API.
+- **Loader** (`moodle-course-loader`) — The existing tool that consumes the COURSE_MASTER_PLAN and builibreria the course structure in Moodle via Moodle's web-service API.
 - **Moodle link** — The URL of the built course in Moodle, written back to the intranet to mark a submission `published`.
 - **Identity provider (IdP)** — The intranet's authentication service offering three login methods (local username/password, Google, GitHub), all resolving to a single canonical user identity.
 - **customer.io** — The external service used for transactional/notification email and lead capture, integrated with the intranet.
@@ -141,10 +141,10 @@ Full federated identity in v1 (2 developers dedicated). One canonical identity p
 
 ### 4.2 Entry Point & Teacher Profile *(stories 01, 02)*
 
-- **FR-8** [v1] The site must present a discoverable **"Teach on LdS"** entry action in a consistent, documented location.
+- **FR-8** [v1] The site must present a discoverable **"Teach on libreria"** entry action in a consistent, documented location.
 - **FR-9** [v1] The entry action must be **state-aware**: unauthenticated → sign-in (§4.1); authenticated with no submission → start a new draft; with existing draft(s) → submissions dashboard; established instructor → instructor dashboard.
-- **FR-10** [v1] The profile wizard must capture required fields: name or pseudonym (public), email (pre-filled from identity), **confirmation email (required)**, biography (50–300 words, editable later), GitHub username, whether they have an audience, and residency location (for payments).
-- **FR-11** [v1] The profile wizard must capture optional fields: LinkedIn, Nostr, X, years of teaching experience, teaching environments (multi-select, shown only if experience given), and a free-text note.
+- **FR-10** [v1] The profile wizard must capture required fielibreria: name or pseudonym (public), email (pre-filled from identity), **confirmation email (required)**, biography (50–300 words, editable later), GitHub username, whether they have an audience, and residency location (for payments).
+- **FR-11** [v1] The profile wizard must capture optional fielibreria: LinkedIn, Nostr, X, years of teaching experience, teaching environments (multi-select, shown only if experience given), and a free-text note.
 - **FR-12** [v1] Profile data must be editable after initial submission.
 
 ### 4.3 Course Submission *(story 03)*
@@ -191,11 +191,11 @@ Full federated identity in v1 (2 developers dedicated). One canonical identity p
 The critical path. Publishing a live course in Moodle is the only step that delivers real end value.
 
 - **FR-29** [v1] On approval, the system must generate the **COURSE_MASTER_PLAN** (loader input) and **MKT_BRIEFING** (marketing input) from the submission package.
-- **FR-30** [v1] The system must hand the COURSE_MASTER_PLAN to the **loader**, which builds the course structure in Moodle in a **"hidden from students"** state.
+- **FR-30** [v1] The system must hand the COURSE_MASTER_PLAN to the **loader**, which builibreria the course structure in Moodle in a **"hidden from students"** state.
 - **FR-30a** [v1] The built course must be placed in the **Moodle category assigned by the reviewer** during approval (the reviewer-selected category travels with the submission per FR-28).
 - **FR-31** [v1] On publish, the instructor must be assigned the appropriate **Teacher role and enrolment** in the Moodle course (platform P101).
 - **FR-32** [v1] On successful build, the **Moodle link** must be written back to the intranet and the submission status set to `published`.
-- **FR-33** [v1] The handoff must follow this authoritative sequence (resolves OQ-1): **PR merge triggers the build automatically**; before/at handoff the intranet **records the handoff event and notifies Operations** (§4.7); the loader builds the course in Moodle in a **"hidden from students"** state; the **instructor completes the course setup in Moodle**; a **final validation is performed in Moodle** before the course is opened to students. The intranet's responsibility ends at `published` (built + Moodle link recorded, hidden); making the course student-visible happens in Moodle, out of intranet scope.
+- **FR-33** [v1] The handoff must follow this authoritative sequence (resolves OQ-1): **PR merge triggers the build automatically**; before/at handoff the intranet **records the handoff event and notifies Operations** (§4.7); the loader builibreria the course in Moodle in a **"hidden from students"** state; the **instructor completes the course setup in Moodle**; a **final validation is performed in Moodle** before the course is opened to students. The intranet's responsibility ends at `published` (built + Moodle link recorded, hidden); making the course student-visible happens in Moodle, out of intranet scope.
 - **FR-34** [v1] The intranet must record and surface that handoff is **not instantaneous**, so a course may sit at `approved` before `published`, and that **final validation occurs in Moodle** after publish (before students see it). `[ASSUMPTION]` the intranet does not track the in-Moodle validation state in v1; it only records the handoff and `published`.
 - **FR-35** [v1] A person with ≥1 approved course must be marked **instructor** in the intranet.
 - **FR-36** [v1] The handoff must define behavior on **failure** (build error / retry) and **re-run** (idempotency) so a failed or repeated handoff does not corrupt Moodle state. `[ASSUMPTION]` (v1 may handle this manually but the behavior must be specified.)
@@ -205,7 +205,7 @@ The critical path. Publishing a live course in Moodle is the only step that deli
 
 - **FR-37** [v1] The intranet must send transactional emails via **customer.io** at key transitions: profile/course submitted, changes requested, approved, and published.
 - **FR-37a** [v1] On **handoff** (PR merge → build triggered), the intranet must **notify Operations** that a handoff has started, in addition to recording the event (FR-33).
-- **FR-38** [v1] When a user starts **"Teach on LdS,"** the intranet must register them as a **lead** in customer.io, even if they never complete the wizard.
+- **FR-38** [v1] When a user starts **"Teach on libreria,"** the intranet must register them as a **lead** in customer.io, even if they never complete the wizard.
 - **FR-39** [v1] The **published** notification to the instructor must include the **Moodle link**. (Promo-kit contents are §4.8 / deferred.)
 
 ### 4.8 Marketing & Promotion *(stories 06b, 07, 08 — deferred)*
@@ -221,7 +221,7 @@ The critical path. Publishing a live course in Moodle is the only step that deli
 |---|---|---|---|
 | SM-1 | Courses onboarded **end-to-end** (submitted → published) | The whole point of v1 | Trending toward **50** in ~3 months `[ASSUMPTION on exact pacing]` |
 | SM-2 | **Instructor completion rate** (started wizard → submitted) | Measures wizard friction | Establish baseline, then improve |
-| SM-3 | **Time** from "Teach on LdS" → submitted | Measures flow smoothness | Establish baseline |
+| SM-3 | **Time** from "Teach on libreria" → submitted | Measures flow smoothness | Establish baseline |
 | SM-4 | **Ops time-to-approval** (submitted → approved/rejected) | Measures review throughput | Establish baseline |
 
 **Counter-metrics** (guard against gaming the above):
@@ -259,7 +259,7 @@ The critical path. Publishing a live course in Moodle is the only step that deli
 
 ### Resolved (2026-06-16)
 
-- **OQ-1 Handoff mechanism (one-way door) — RESOLVED.** PR merge triggers the build automatically; the intranet records the handoff event and notifies Operations; the loader builds the course in Moodle hidden-from-students; the instructor completes setup in Moodle; a final validation is done in Moodle before opening to students. See FR-33/FR-34/FR-37a. *(Detailed sequence/state machine still to be designed in architecture — see OQ-6.)*
+- **OQ-1 Handoff mechanism (one-way door) — RESOLVED.** PR merge triggers the build automatically; the intranet records the handoff event and notifies Operations; the loader builibreria the course in Moodle hidden-from-students; the instructor completes setup in Moodle; a final validation is done in Moodle before opening to students. See FR-33/FR-34/FR-37a. *(Detailed sequence/state machine still to be designed in architecture — see OQ-6.)*
 - **OQ-2 Post-publish data consistency (one-way door) — RESOLVED.** Fire-and-forget from the intranet. Content-ownership lifecycle: intranet wizard/draft → **GitHub Markdown** (instructor edits there after submit; intranet content goes read-only) → **Moodle** after publish (edits only in Moodle thereafter). See FR-17a/FR-36a.
 - **OQ-7 Confirmation-email field — RESOLVED.** Required in the profile wizard. See FR-10.
 
